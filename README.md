@@ -33,5 +33,8 @@ internal class Program
         fast.KeyBoardClick("w");
         // Press a key combination (Shift + w)
         fast.KeyBoardClick("Shift+w");
+        // Press multiple keys (Alt + Shift)
+        fast.KeyBoardClick("Alt+Shift);
     }
 }
+```
