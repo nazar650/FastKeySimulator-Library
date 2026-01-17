@@ -175,7 +175,7 @@
                 case "alt":
                     scancode = 56;
                     break;
-                case "space" or " ":
+                case "space":
                     scancode = 57;
                     break;
                 case "caps":
