@@ -73,7 +73,10 @@ internal class Program
 }
 ```
 ### How to use **MouseScrollWheel(int count, int time)**
-
+- **count** — Number of scroll steps
+   - Positive value → scroll up
+   - Negative value → scroll down
+- **time** — Delay (in milliseconds) between scroll steps
 ```csharp
 using FastKeySimulator;
 internal class Program
