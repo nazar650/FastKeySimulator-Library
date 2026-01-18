@@ -5,13 +5,13 @@ Key Features
 ---
 ## Key Features
 
-### 1️⃣ Keyboard
+### 1. Keyboard
 - **Press any key** using its name
 - **Release keys**
 - **Supports multiple keys pressed simultaneously**
 - **Layout-independent** (QWERTY, RUS, ENG, etc.)
 
-### 2️⃣ Mouse
+### 2. Mouse
 - **Left, Right, and Middle clicks**
 - **Scroll wheel support**
 - **Move the cursor to absolute coordinates**
@@ -94,3 +94,8 @@ internal class Program
     }
 }
 ```
+###  How to use  **MouseSetCursorPos(int x, int y)**
+Moves the mouse cursor to an absolute screen position.
+- **x** — X coordinate (pixels)
+- **y** — Y coordinate (pixels)
+```csharp
