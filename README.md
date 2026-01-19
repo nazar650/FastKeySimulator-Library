@@ -6,8 +6,7 @@ Key Features
 ## Key Features
 
 ### 1. Keyboard
-- **Press any key** using its name
-- **Release keys**
+- **Keystrokes**
 - **Supports multiple keys pressed simultaneously**
 - **Layout-independent** (QWERTY, RUS, ENG, etc.)
 
@@ -30,11 +29,11 @@ internal class Program
         FastKeySim fast=new FastKeySim();
         Thread.Sleep(6000);
         // Press a single key
-        fast.KeyBoardClick("w");
-        // Press a key combination (Shift + w)
-        fast.KeyBoardClick("Shift+w");
-        // Press multiple keys (Alt + Shift)
-        fast.KeyBoardClick("Alt+Shift");
+        fast.KeyBoardClick(ScanCode.W);
+        // Press a key combination (RShift + w)
+        fast.KeyBoardClick(ScanCode.RShift,ScanCode.W");
+        // Press multiple keys (Alt + RShift)
+        fast.KeyBoardClick(ScanCode.Alt,ScanCode.RShift);
     }
 }
 ```
