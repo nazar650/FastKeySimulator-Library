@@ -19,7 +19,7 @@ Key Features
 ## Keyboard Simulation with FastKeySim
 The **FastKeySim** class allows you to easily simulate keyboard and mouse input in your C# applications. You can press single keys or key combinations with a single method call, without worrying about low-level WinAPI details.The **KeyboardClick()** method allows you to simulate pressing single keys or key combinations on the keyboard with just one call. It handles both the press and release events, so Windows sees it as a real key press.
 
-### How to use
+### How to use **KeyBoardClick(params ushort[] scanCode)**
 ```csharp
 using FastKeySimulator;
 internal class Program
