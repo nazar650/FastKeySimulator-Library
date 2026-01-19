@@ -1,277 +1,112 @@
-﻿namespace FastKeySimulator.Structure.ScanCode.Keyboard
-{
-    internal class ScanCode
+﻿
+    namespace FastKeySimulator
     {
-        private ushort scancode;
-        public ScanCode(string scancodeKey)
+        public static class ScanCode
         {
-            switch (scancodeKey?.ToLower())
-            {
-                case "esc":
-                    scancode = 1;
-                    break;
-                case "1":
-                    scancode = 2;
-                    break;
-                case "2":
-                    scancode = 3;
-                    break;
-                case "3":
-                    scancode = 4;
-                    break;
-                case "4":
-                    scancode = 5;
-                    break;
-                case "5":
-                    scancode = 6;
-                    break;
-                case "6":
-                    scancode = 7;
-                    break;
-                case "7":
-                    scancode = 8;
-                    break;
-                case "8":
-                    scancode = 9;
-                    break;
-                case "9":
-                    scancode = 10;
-                    break;
-                case "0":
-                    scancode = 11;
-                    break;
-                case "-":
-                    scancode = 12;
-                    break;
-                case "=":
-                    scancode = 13;
-                    break;
-                case "bs" or "backspace":
-                    scancode = 14;
-                    break;
-                case "Tab" or "tab":
-                    scancode = 15;
-                    break;
-                case "q":
-                    scancode = 16;
-                    break;
-                case "w":
-                    scancode = 17;
-                    break;
-                case "e":
-                    scancode = 18;
-                    break;
-                case "r":
-                    scancode = 19;
-                    break;
-                case "t":
-                    scancode = 20;
-                    break;
-                case "y":
-                    scancode = 21;
-                    break;
-                case "u":
-                    scancode = 22;
-                    break;
-                case "i":
-                    scancode = 23;
-                    break;
-                case "o":
-                    scancode = 24;
-                    break;
-                case "p":
-                    scancode = 25;
-                    break;
-                case "[":
-                    scancode = 26;
-                    break;
-                case "]":
-                    scancode = 27;
-                    break;
-                case "enter":
-                    scancode = 28;
-                    break;
-                case "CTRL" or "Ctrl" or "ctrl":
-                    scancode = 29;
-                    break;
-                case "a":
-                    scancode = 30;
-                    break;
-                case "s":
-                    scancode = 31;
-                    break;
-                case "d":
-                    scancode = 32;
-                    break;
-                case "f":
-                    scancode = 33;
-                    break;
-                case "g":
-                    scancode = 34;
-                    break;
-                case "h":
-                    scancode = 35;
-                    break;
-                case "j":
-                    scancode = 36;
-                    break;
-                case "k":
-                    scancode = 37;
-                    break;
-                case "l":
-                    scancode = 38;
-                    break;
-                case ";":
-                    scancode = 39;
-                    break;
-                case "'":
-                    scancode = 40;
-                    break;
-                case "`":
-                    scancode = 41;
-                    break;
-                case "lshift" or "shift":
-                    scancode = 42;
-                    break;
-                case @"\":
-                    scancode = 43;
-                    break;
-                case "z":
-                    scancode = 44;
-                    break;
-                case "x":
-                    scancode = 45;
-                    break;
-                case "c":
-                    scancode = 46;
-                    break;
-                case "v":
-                    scancode = 47;
-                    break;
-                case "b":
-                    scancode = 48;
-                    break;
-                case "n":
-                    scancode = 49;
-                    break;
-                case "m":
-                    scancode = 50;
-                    break;
-                case ",":
-                    scancode = 51;
-                    break;
-                case ".":
-                    scancode = 52;
-                    break;
-                case "/":
-                    scancode = 53;
-                    break;
-                case "rshift":
-                    scancode = 54;
-                    break;
-                case "prtsc" or "print screen" or "printscreen":
-                    scancode = 55;
-                    break;
-                case "alt":
-                    scancode = 56;
-                    break;
-                case "space":
-                    scancode = 57;
-                    break;
-                case "caps":
-                    scancode = 58;
-                    break;
-                case "f1":
-                    scancode = 59;
-                    break;
-                case "f2":
-                    scancode = 60;
-                    break;
-                case "f3":
-                    scancode = 61;
-                    break;
-                case "f4":
-                    scancode = 62;
-                    break;
-                case "f5":
-                    scancode = 63;
-                    break;
-                case "f6":
-                    scancode = 64;
-                    break;
-                case "f7":
-                    scancode = 65;
-                    break;
-                case "f8":
-                    scancode = 66;
-                    break;
-                case "f9":
-                    scancode = 67;
-                    break;
-                case "f10":
-                    scancode = 68;
-                    break;
-                case "num" or"numlock":
-                    scancode = 69;
-                    break;
-                case "scroll":
-                    scancode = 70;
-                    break;
-                case "home":
-                    scancode = 71;
-                    break;
-                case "up":
-                    scancode = 72;
-                    break;
-                case "pgup":
-                    scancode = 73;
-                    break;
-                case "left":
-                    scancode = 75;
-                    break;
-                case "center":
-                    scancode = 76;
-                    break;
-                case "right":
-                    scancode = 77;
-                    break;
-                case "+":
-                    scancode = 78;
-                    break;
-                case "end":
-                    scancode = 79;
-                    break;
-                case "down":
-                    scancode = 80;
-                    break;
-                case "pgdn":
-                    scancode = 81;
-                    break;
-                case "ins" or "insert":
-                    scancode = 82;
-                    break;
-                case "del" or "delete":
-                    scancode = 83;
-                    break;
-                case "f11":
-                    scancode = 87;
-                    break;
-                case "f12":
-                    scancode = 88;
-                    break;
-                case "lwin" or "leftwin" or "win"  or "windows":
-                    scancode = 91;
-                    break;
-                default:
-                    scancode = 1;
-                    break;
+            public const ushort Esc = 1;
 
+            public const ushort D1 = 2;
+            public const ushort D2 = 3;
+            public const ushort D3 = 4;
+            public const ushort D4 = 5;
+            public const ushort D5 = 6;
+            public const ushort D6 = 7;
+            public const ushort D7 = 8;
+            public const ushort D8 = 9;
+            public const ushort D9 = 10;
+            public const ushort D0 = 11;
 
-            }
-        }
-        public ushort Scancode()
-        {
-            return scancode;
+            public const ushort Minus = 12;
+            public new const ushort Equals = 13;
+            public const ushort Backspace = 14;
+            public const ushort Tab = 15;
+
+            public const ushort Q = 16;
+            public const ushort W = 17;
+            public const ushort E = 18;
+            public const ushort R = 19;
+            public const ushort T = 20;
+            public const ushort Y = 21;
+            public const ushort U = 22;
+            public const ushort I = 23;
+            public const ushort O = 24;
+            public const ushort P = 25;
+
+            public const ushort LBracket = 26;
+            public const ushort RBracket = 27;
+            public const ushort Enter = 28;
+            public const ushort Ctrl = 29;
+
+            public const ushort A = 30;
+            public const ushort S = 31;
+            public const ushort D = 32;
+            public const ushort F = 33;
+            public const ushort G = 34;
+            public const ushort H = 35;
+            public const ushort J = 36;
+            public const ushort K = 37;
+            public const ushort L = 38;
+
+            public const ushort Semicolon = 39;
+            public const ushort Apostrophe = 40;
+            public const ushort Tilde = 41;
+
+            public const ushort LShift = 42;
+            public const ushort Backslash = 43;
+
+            public const ushort Z = 44;
+            public const ushort X = 45;
+            public const ushort C = 46;
+            public const ushort V = 47;
+            public const ushort B = 48;
+            public const ushort N = 49;
+            public const ushort M = 50;
+
+            public const ushort Comma = 51;
+            public const ushort Dot = 52;
+            public const ushort Slash = 53;
+
+            public const ushort RShift = 54;
+            public const ushort PrintScreen = 55;
+            public const ushort Alt = 56;
+            public const ushort Space = 57;
+            public const ushort CapsLock = 58;
+
+            public const ushort F1 = 59;
+            public const ushort F2 = 60;
+            public const ushort F3 = 61;
+            public const ushort F4 = 62;
+            public const ushort F5 = 63;
+            public const ushort F6 = 64;
+            public const ushort F7 = 65;
+            public const ushort F8 = 66;
+            public const ushort F9 = 67;
+            public const ushort F10 = 68;
+
+            public const ushort NumLock = 69;
+            public const ushort ScrollLock = 70;
+
+            public const ushort Home = 71;
+            public const ushort ArrowUp = 72;
+            public const ushort PageUp = 73;
+
+            public const ushort ArrowLeft = 75;
+            public const ushort NumpadCenter = 76;
+            public const ushort ArrowRight = 77;
+
+            public const ushort NumpadPlus = 78;
+
+            public const ushort End = 79;
+            public const ushort ArrowDown = 80;
+            public const ushort PageDown = 81;
+
+            public const ushort Insert = 82;
+            public const ushort Delete = 83;
+
+            public const ushort F11 = 87;
+            public const ushort F12 = 88;
+
+            public const ushort LeftWin = 91;
         }
     }
-}
+

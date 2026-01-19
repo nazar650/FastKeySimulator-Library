@@ -6,11 +6,12 @@ namespace FastKeySimulator
 {
     public class FastKeySim
     {
-        KeyboardClick keyboard = new KeyboardClick();
-        IMouseClick mouse = new MouseClick();
-        public void KeyBoardClick(string name)
+        private KeyboardClick keyboard = new KeyboardClick();
+       private IMouseClick mouse = new MouseClick();
+        public void KeyBoardClick(params ushort[] scanCode)
         {
-            keyboard.Click(name);
+
+            keyboard.Click(scanCode);
         }
         public void MouseClick(string name)
         {
