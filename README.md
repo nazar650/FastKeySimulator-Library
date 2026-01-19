@@ -60,13 +60,13 @@ internal class Program
         Thread.Sleep(6000);
 
         // Left mouse click
-        fast.MouseClick("Left");
+        fast.MouseClick(Mouse.Left);
 
         // Right mouse click
-        fast.MouseClick("Right");
+        fast.MouseClick(Mouse.Right);
 
         // Middle mouse click
-        fast.MouseClick("Middle");
+        fast.MouseClick(Mouse.Middle);
 
     }
 }
