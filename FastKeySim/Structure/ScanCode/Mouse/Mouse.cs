@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FastKeySim.Structure.ScanCode.Mouse
+namespace FastKeySim
 {
     public static class Mouse
     {
