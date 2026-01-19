@@ -1,4 +1,4 @@
-﻿using FastKeySim.Structure.ScanCode.Mouse;
+﻿using FastKeySim;
 using FastKeySimulator.Keystrokes.Keyboard.Click;
 using FastKeySimulator.Keystrokes.Mouse.Domain.Click;
 using FastKeySimulator.Keystrokes.Mouse.Domain.Interface;
