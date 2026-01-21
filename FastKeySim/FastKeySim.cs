@@ -1,34 +1,38 @@
-﻿using FastKeySimulator;
-using FastKeySimulator.Keystrokes.Keyboard.Click;
+﻿using FastKeySimulator.Keystrokes.Mouse.Domain.ScrollWheel;
+using FastKeySimulator.Keystrokes.Mouse.Domain.Show;
+using FastKeySimulator.Keystrokes.Keyboard.Domain.Click;
 using FastKeySimulator.Keystrokes.Mouse.Domain.Click;
-using FastKeySimulator.Keystrokes.Mouse.Domain.Interface;
+using FastKeySimulator.Keystrokes.Mouse.Domain.SetCursorPos;
 
 namespace FastKeySimulator
 {
     public class FastKeySim
     {
-        private KeyboardClick keyboard = new KeyboardClick();
-       private IMouseClick mouse = new MouseClick();
-        public void KeyBoardClick(params ushort[] scanCode)
+        private KeyBoardClick keyboard = new KeyBoardClick();
+       private MouseClick mouseClick = new MouseClick();
+        private CursorMotion mouseMotion = new CursorMotion();
+        private MouseScrollWheel mouseScrollWheel = new MouseScrollWheel();
+        private MouseSetCursorPos mouseSetCursorPos = new MouseSetCursorPos();
+        public async Task KeyBoardClick(int timeDelay,params ushort[] scanCode)
         {
 
-            keyboard.Click(scanCode);
+          await keyboard.Click(scanCode,timeDelay);
         }
         public void MouseClick(string name)
         {
-            mouse.Click(name);
+            mouseClick.Click(name);
         }
-        public void MouseScrollWheel(int count,int time)
+        public async Task MouseScrollWheel(int count,int timeDelay)
         {
-            mouse.ScrollWheel(count,time);
+           await mouseScrollWheel.ScrollWheelAsync(count,timeDelay);
         }
         public void MouseSetCursorPos(int x,int y)
         {
-            mouse.SetCursorPosition(x,y);
+            mouseSetCursorPos.SetCursorPosition(x,y);
         }
-        public void MouseShowMouse(int x,int y,int steps,int time)
+        public async Task CursorMotion(int x,int y,int steps,int timeDelay)
         {
-            mouse.ShowMouse(x,y,steps,time);
+            await mouseMotion.ShowMouse(x,y,steps,timeDelay);
         }
     }
 }

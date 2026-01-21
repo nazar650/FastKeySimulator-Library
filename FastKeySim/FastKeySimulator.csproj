@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>FastKeySimulator</PackageId>
+    <Title>FastKeySimulator</Title>
+    <Version>1.1.1</Version>
+    <Authors>Turba</Authors>
+    <Company />
+    <Copyright>Apache-2.0 license</Copyright>
+    <Description>The FastKeySimulator library for C# allows programmatic control of the keyboard and mouse in Windows via the WinAPI.
+It uses the low-level SendInput API, which emulates physical key presses, mouse clicks, and cursor movements. Key Features</Description>
+    <PackageProjectUrl>https://github.com/nazar650/FastKeySimulator-Library</PackageProjectUrl>
+    <PackageIcon>FastKey.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/nazar650/FastKeySimulator-Library</RepositoryUrl>
+    <PackageTags>KeyBoard,KeyBoardClick,SendInput,FastKeySimulator,KeySimulator</PackageTags>
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\..\Desktop\License.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\..\..\..\Загрузки\FastKey.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\..\..\..\Загрузки\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

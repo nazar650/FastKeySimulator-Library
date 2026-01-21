@@ -13,7 +13,7 @@ namespace FastKeySimulator.Structure.Input
         [StructLayout(LayoutKind.Sequential)]
        public struct INPUT
         {
-            public int type; // 1 = клавіатура, 0 = миша
+            public int type;
             public InputUnion U;
         }
 
@@ -28,20 +28,20 @@ namespace FastKeySimulator.Structure.Input
         public struct KEYBDINPUT
         {
             public ushort wVk;
-            public ushort wScan;       // Scan code (фізичний код)
-             public uint dwFlags;       // 0=натискання, KEYEVENTF_KEYUP=відпускання
-             public uint time;          // Час
-            public IntPtr dwExtraInfo; // Додаткова інформація
+            public ushort wScan;     
+             public uint dwFlags;       
+             public uint time;       
+            public IntPtr dwExtraInfo; 
         }
         [StructLayout(LayoutKind.Sequential)]
         public struct MOUSEINPUT
         {
-            public int dx;          // положення миші по X
-            public int dy;          // положення миші по Y
-             public int mouseData;  // додаткові дані (наприклад, коліщатко)
-             public uint dwFlags;    // прапори дій миші (натискання, рух, колесо)
-             public uint time;       // час події (0 = система сама)
-             public IntPtr dwExtraInfo; // додаткові дані
+            public int dx;        
+            public int dy;          
+             public int mouseData; 
+             public uint dwFlags;   
+             public uint time;       
+             public IntPtr dwExtraInfo;
         }
     }
 }
