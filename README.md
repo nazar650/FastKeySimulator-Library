@@ -21,8 +21,8 @@ The **FastKeySim** class allows you to easily simulate keyboard and mouse input 
 
 ### How to use **KeyBoardClick(int timeDelay,params ushort[] scanCode)**
 - **timeDelay** – Delay in milliseconds before releasing the key.
-  - If **timeDelay** < 5.5 a single key/key combination is pressed.
-  - If **timeDelay** >= 5.5 the keys will be held down for the specified time before being released.
+  - If **timeDelay** < 6 a single key/key combination is pressed.
+  - If **timeDelay** > 6 the keys will be held down for the specified time before being released.
 - **scanCode** – one or more scan codes of the keys to press. You can pass both individual keys and combinations.
 ```csharp
 using FastKeySimulator;
