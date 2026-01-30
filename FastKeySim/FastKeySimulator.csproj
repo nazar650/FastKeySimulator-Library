@@ -1,39 +1,59 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0-windows10.0.17763.0</TargetFramework>
+
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	
     <PackageId>FastKeySimulator</PackageId>
     <Title>FastKeySimulator</Title>
-    <Version>1.1.1</Version>
+    <Version>1.2.0</Version>
     <Authors>Turba</Authors>
-    <Company />
+
     <Copyright>Apache-2.0 license</Copyright>
-    <Description>The FastKeySimulator library for C# allows programmatic control of the keyboard and mouse in Windows via the WinAPI.
-It uses the low-level SendInput API, which emulates physical key presses, mouse clicks, and cursor movements. Key Features</Description>
+
+    <Description>
+The FastKeySimulator library for C# allows programmatic control of the keyboard and mouse in Windows via the WinAPI.
+It uses the low-level SendInput API, which emulates physical key presses, mouse clicks, and cursor movements.
+    </Description>
+
     <PackageProjectUrl>https://github.com/nazar650/FastKeySimulator-Library</PackageProjectUrl>
+
     <PackageIcon>FastKey.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/nazar650/FastKeySimulator-Library</RepositoryUrl>
-    <PackageTags>KeyBoard,KeyBoardClick,SendInput,FastKeySimulator,KeySimulator</PackageTags>
+
+    <PackageTags>keyboard,sendinput,winapi,key-simulator,automation</PackageTags>
+
     <PackageLicenseFile>License.txt</PackageLicenseFile>
+
+    <ApplicationIcon>FastKey.ico</ApplicationIcon>
+
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;CA1416</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;CA1416</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\..\..\Desktop\License.txt">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="..\..\..\..\..\Загрузки\FastKey.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="..\..\..\..\..\Загрузки\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
+    <Content Include="FastKey.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\..\Desktop\License.txt" Pack="true" PackagePath="\" />
+    <None Include="..\..\..\..\..\Загрузки\FastKey.png" Pack="true" PackagePath="\" />
+    <None Include="..\..\..\..\..\Загрузки\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>

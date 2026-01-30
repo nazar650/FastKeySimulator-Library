@@ -1,8 +1,11 @@
-﻿using System.Runtime.InteropServices;
+﻿using FastKeySimulator.Structure.DwFlags.Mouse;
+using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 using static FastKeySimulator.Structure.Input.Input;
 
 namespace FastKeySimulator.Keystrokes.Mouse.Domain.Click
 {
+    
     internal class MouseClick
     {
         [DllImport("user32.dll", SetLastError = true)]
@@ -16,23 +19,28 @@ namespace FastKeySimulator.Keystrokes.Mouse.Domain.Click
         }
         public void Click(string nameKey)
         {
-            if (string.Equals(nameKey, "left", StringComparison.OrdinalIgnoreCase))
+            if (nameKey == "left")
             {
-                mouse[0].U.mi.dwFlags = 0x0002;
-                mouse[1].U.mi.dwFlags = 0x0004;
+                mouse[0].U.mi.dwFlags = DwFlagsMouse.MOUSEEVENTF_LEFTDOWN;
+                mouse[1].U.mi.dwFlags = DwFlagsMouse.MOUSEEVENTF_LEFTUP;
             }
-            if (string.Equals(nameKey, "right", StringComparison.OrdinalIgnoreCase))
+            if (nameKey == "right")
             {
-                mouse[0].U.mi.dwFlags = 0x0008;
-                mouse[1].U.mi.dwFlags = 0x0010;
+                mouse[0].U.mi.dwFlags = DwFlagsMouse.MOUSEEVENTF_RIGHTDOWN;
+                mouse[1].U.mi.dwFlags = DwFlagsMouse.MOUSEEVENTF_RIGHTUP;
             }
-            if (string.Equals(nameKey, "middle", StringComparison.OrdinalIgnoreCase))
+            if (nameKey == "middle")
             {
-                mouse[0].U.mi.dwFlags = 0x0020;
-                mouse[0].U.mi.dwFlags = 0x0040;
+                mouse[0].U.mi.dwFlags = DwFlagsMouse.MOUSEEVENTF_MIDDLEDOWN;
+                mouse[0].U.mi.dwFlags = DwFlagsMouse.MOUSEEVENTF_MIDDLEUP;
             }
+            else
+            {
+                return;
+            }
+
             SendInput((uint)mouse.Length, mouse, Marshal.SizeOf(typeof(INPUT)));
         }
     }
-    
+
 }

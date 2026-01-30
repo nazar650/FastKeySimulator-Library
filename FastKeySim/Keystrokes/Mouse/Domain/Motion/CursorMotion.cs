@@ -1,14 +1,17 @@
-﻿using FastKeySimulator.Structure.Input;
+﻿using FastKeySimulator.Structure.DwFlags.Mouse;
+using FastKeySimulator.Structure.Input;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 using static FastKeySimulator.Structure.Input.Input;
 
 namespace FastKeySimulator.Keystrokes.Mouse.Domain.Show
 {
-    internal class CursorMotion 
+    
+    internal class CursorMotion
     {
 
         [DllImport("user32.dll", SetLastError = true)]
-       private static extern uint SendInput(uint nInputs, [In] INPUT[] pInputs, int cbSize);
+        private static extern uint SendInput(uint nInputs, [In] INPUT[] pInputs, int cbSize);
 
         INPUT[] mouse = new INPUT[2];
         public CursorMotion()
@@ -26,7 +29,7 @@ namespace FastKeySimulator.Keystrokes.Mouse.Domain.Show
             float stepYTemp = (float)y / steps;
             float stepX = 0;
             float stepY = 0;
-            mouse[0].U.mi.dwFlags = 0x0001;
+            mouse[0].U.mi.dwFlags = DwFlagsMouse.MOUSEEVENTF_MOVE;
             for (int i = 0; i < steps; i++)
             {
                 stepX += stepXTemp;
@@ -39,12 +42,12 @@ namespace FastKeySimulator.Keystrokes.Mouse.Domain.Show
                 mouse[0].U.mi.dy = YTemp;
                 SendInput(1, mouse, Marshal.SizeOf(typeof(Input.INPUT)));
                 await Task.Delay(timeDelay);
-               
+
             }
-         
+
 
         }
-      
-        
+
+
     }
 }

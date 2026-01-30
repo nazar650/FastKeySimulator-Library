@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.InteropServices;
 
 namespace FastKeySimulator.Structure.Input
 {
@@ -11,7 +6,7 @@ namespace FastKeySimulator.Structure.Input
     {
 
         [StructLayout(LayoutKind.Sequential)]
-       public struct INPUT
+        public struct INPUT
         {
             public int type;
             public InputUnion U;
@@ -28,20 +23,20 @@ namespace FastKeySimulator.Structure.Input
         public struct KEYBDINPUT
         {
             public ushort wVk;
-            public ushort wScan;     
-             public uint dwFlags;       
-             public uint time;       
-            public IntPtr dwExtraInfo; 
+            public ushort wScan;
+            public uint dwFlags;
+            public uint time;
+            public IntPtr dwExtraInfo;
         }
         [StructLayout(LayoutKind.Sequential)]
         public struct MOUSEINPUT
         {
-            public int dx;        
-            public int dy;          
-             public int mouseData; 
-             public uint dwFlags;   
-             public uint time;       
-             public IntPtr dwExtraInfo;
+            public int dx;
+            public int dy;
+            public int mouseData;
+            public uint dwFlags;
+            public uint time;
+            public IntPtr dwExtraInfo;
         }
     }
 }

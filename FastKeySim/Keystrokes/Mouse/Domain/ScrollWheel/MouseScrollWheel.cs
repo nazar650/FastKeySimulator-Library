@@ -1,8 +1,11 @@
-﻿using System.Runtime.InteropServices;
+﻿using FastKeySimulator.Structure.DwFlags.Mouse;
+using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 using static FastKeySimulator.Structure.Input.Input;
 
 namespace FastKeySimulator.Keystrokes.Mouse.Domain.ScrollWheel
 {
+   
     internal class MouseScrollWheel
     {
         [DllImport("user32.dll", SetLastError = true)]
@@ -19,7 +22,7 @@ namespace FastKeySimulator.Keystrokes.Mouse.Domain.ScrollWheel
             {
                 timeDelay = 0;
             }
-            mouse[0].U.mi.dwFlags = 0x0800;
+            mouse[0].U.mi.dwFlags = DwFlagsMouse.MOUSEEVENTF_WHEEL;
             float steps = (float)count / timeDelay;
             float Scroll = 0;
             for (int i = 0; i < timeDelay; i++)
@@ -32,7 +35,7 @@ namespace FastKeySimulator.Keystrokes.Mouse.Domain.ScrollWheel
                 await Task.Delay(1);
             }
         }
-        
-        
+
+
     }
 }
