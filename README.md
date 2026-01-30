@@ -1,4 +1,4 @@
-# FastKeySimulator V 1.1.1
+# FastKeySimulator V 1.2.0
 The **FastKeySimulator library** for C# allows programmatic control of the keyboard and mouse in Windows via the WinAPI. It uses the low-level **SendInput API**, which emulates physical key presses, mouse clicks, and cursor movements.
 Key Features
 
@@ -19,21 +19,25 @@ Key Features
 ## Keyboard Simulation with FastKeySim
 The **FastKeySim** class allows you to easily simulate keyboard and mouse input in your C# applications. You can press single keys or key combinations with a single method call, without worrying about low-level WinAPI details.The **KeyboardClick()** method allows you to simulate pressing single keys or key combinations on the keyboard with just one call. It handles both the press and release events, so Windows sees it as a real key press.
 
-### How to use **KeyBoardClick(params ushort[] scanCode)**
+### How to use **KeyBoardClick(int timeDelay,params ushort[] scanCode)**
+- **timeDelay** – Delay in milliseconds before releasing the key.
+  - If **timeDelay** < 6 a single key/key combination is pressed.
+  - If **timeDelay** > 6 the keys will be held down for the specified time before being released.
+- **scanCode** – one or more scan codes of the keys to press. You can pass both individual keys and combinations.
 ```csharp
 using FastKeySimulator;
 internal class Program
 {
-    private static void Main(string[] args)
+    private static async Task Main(string[] args)
     {
         FastKeySim fast=new FastKeySim();
         Thread.Sleep(6000);
         // Press a single key
-        fast.KeyBoardClick(ScanCode.W);
-        // Press a key combination (RShift + w)
-        fast.KeyBoardClick(ScanCode.RShift,ScanCode.W");
-        // Press multiple keys (Alt + RShift)
-        fast.KeyBoardClick(ScanCode.Alt,ScanCode.RShift);
+        await fast.KeyBoardClick(0,ScanCode.W);
+        // Press a key combination (0,RShift + w)
+        await fast.KeyBoardClick(0,ScanCode.RShift,ScanCode.W");
+        // Press multiple keys (0,Alt + RShift)
+        await fast.KeyBoardClick(0,ScanCode.Alt,ScanCode.RShift);
     }
 }
 ```
@@ -47,7 +51,7 @@ internal class Program
 
 - The **MouseSetCursorPos()** method allows you to instantly move the mouse cursor to any position on the screen using absolute coordinates.
 
-- The **MouseShowMouse()** method allows you to smoothly move the mouse cursor by a specified number of pixels.
+- The **CursorMotion()** method allows you to smoothly move the mouse cursor by a specified number of pixels.
 
 ### How to use **MouseClick(string name)**
 ```csharp
@@ -71,24 +75,24 @@ internal class Program
     }
 }
 ```
-### How to use **MouseScrollWheel(int count, int time)**
+### How to use **MouseScrollWheel(int count, int timeDelay)**
 - **count** — Number of scroll steps
    - Positive value → scroll up
    - Negative value → scroll down
-- **time** — Delay (in milliseconds) between scroll steps
+- **timeDelay** — Delay in milliseconds between scroll steps
 ```csharp
 using FastKeySimulator;
 internal class Program
 {
-    private static void Main(string[] args)
+    private static async Task Main(string[] args)
     {
         FastKeySim fast=new FastKeySim();
         Thread.Sleep(6000);
         // Scroll up 3 steps
-        fast.MouseScrollWheel(3, 10);
+        await fast.MouseScrollWheel(3, 10);
 
         // Scroll down 2 steps
-        fast.MouseScrollWheel(-2, 15);
+       await fast.MouseScrollWheel(-2, 15);
     }
 }
 ```
@@ -112,25 +116,25 @@ internal class Program
     }
 }
 ```
-###  How to use **MouseShowMouse(int x, int y, int steps, int time)**
-- **x**     — total horizontal movement in pixels
-  - Positive value → Right
-  - Negative value → Left
-- **y**    — total vertical movement in pixels
-   - Positive value → Down
-   - Negative value → Up
+###  How to use **CursorMotion(int x,int y,int steps,int timeDelay)**
+- **x**     — Total horizontal movement in pixels
+  - Positive value of movement to the right
+  - Negative value of movement to the left
+- **y**    — Total vertical movement in pixels
+   - Positive value of movement to the down
+   - Negative value of movement to the up
 - **steps** — number of movement steps  
-- **time**  — delay between steps (milliseconds)
+- **timeDelay**  — Delay between steps in milliseconds
 ```csharp
 using FastKeySimulator;
 internal class Program
 {
-    private static void Main(string[] args)
+    private static async Task Main(string[] args)
     {
         FastKeySim fast=new FastKeySim();
         Thread.Sleep(6000);
         //Moves 200px right, 100px down, in 20 steps, with 10ms delay.
-        fast.MouseShowMouse(200, 100, 20, 10);
+        await fast.MouseShowMouse(200, 100, 20, 10);
     }
 }
 ```
